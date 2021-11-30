@@ -1,0 +1,93 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block title %} 
+Home Page
+{% endblock %}
+{% block content %}
+<div class="header">
+    <header>
+        <div class="header_content">
+            <ul>
+                <li>
+                    <a href="{% url 'macbook' %}">
+                        MacBook
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'ipad' %}">
+                        iPad
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'iphone' %}" data-filter=".iphone">
+                        iPhone
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        Watch
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        TV
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        Accessories
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </header>
+</div>
+
+<div class="iphon">
+    <a href="{% url 'iphone' %}">
+    <div class="img_iphone">
+        <img src="../../static/images/iphon.jpg">
+    </div>
+    <div style="margin-left: 150px;">
+        <a href="{% url 'iphone' %}">
+        <h1>iPhone</h1>
+        <button type="button" class="btn btn-dark btn-lg" style="margin-left: 25px;">
+            Detail
+        </button>
+        </a>
+    </div>
+    </a>
+</div>
+
+<div class="ipad">
+    <a href="{% url 'ipad' %}">
+    <div style="margin-left: 90px;">
+        <a href="{% url 'ipad' %}">
+        <h1>iPads</h1>
+        <button type="button" class="btn btn-dark btn-lg" style="margin-left: 5px;">
+            Detail
+        </button>
+    </div>   
+     <div class="img_ipad">
+        <img src="../../static/images/ipad.jpg">
+    </div>
+    </a>
+</div>
+
+<div class="imac">
+    <a href="{% url 'macbook' %}">
+    <div class="img_imac">
+        <img src="../../static/images/imac.jpg">
+    </div>
+    <div>
+        <a href="{% url 'macbook' %}">
+        <h1>iMac/MacBook</h1>
+        <button type="button" class="btn btn-dark btn-lg" style="margin-left: 80px;">
+            Detail
+        </button>
+        </a>
+    </div>
+    </a>
+</div>
+
+{% endblock %}

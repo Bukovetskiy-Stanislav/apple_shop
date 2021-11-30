@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+<!-- {% load specifications %} -->
+{{ product.title }}
+{% block content %}
+<div class="header">
+        <nav aria-label="breadcrumb" class="mt-3 nav_prod_detail">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+            <li class="breadcrumb-item"><a href="
+                {% if product.category.slug == 'iphone' %} 
+                {% url 'iphone' %} 
+                {% elif product.category.slug == 'macbook' %}
+                    {% url 'macbook' %} 
+                {% else %}
+                {% url 'ipad' %}
+            {% endif %}
+    ">{{ product.category.name }}</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{{ product.name }}</li>
+        </ol>
+        </nav>
+    <div class="row" style="margin-left: 0.5em;">
+        <div class="col-md-6" style="max-width: 100%;" >
+            <img src="{{ product.image.url }}">
+        </div>
+        <div class="col-md-5">
+            <h3>{{ product.name }}</h3>
+            <h5>Цена: {{ product.price }} $</h5>
+            <h4>Описание: </h4>
+            <p> {{ product.description }}</p>
+            <hr>
+            <a href="#"><button class="btn btn-dark">Добавить в корзину</button></a>
+        </div>
+        <p class="mt-4" style="font-size: 2em;">Характеристики:</p>
+        <div class="prod_spec">
+            {% if product.category.slug == 'iphone' %}
+                {% include 'iphone_specification.html' %}
+            {% elif product.category.slug == 'macbook' %}
+                {% include 'macbook_specification.html' %}
+            {% else %}
+                {% include 'ipad_specification.html' %}
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock content %}
